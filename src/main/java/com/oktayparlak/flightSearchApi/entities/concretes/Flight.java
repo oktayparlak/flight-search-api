@@ -10,8 +10,8 @@ import java.util.Date;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "flights")
 @Entity
+@Table(name = "flights")
 public class Flight {
 
     @Id
@@ -19,11 +19,13 @@ public class Flight {
     @Column(name = "id")
     private Long id;
 
-    @Column(name = "departureAirport")
-    private int departureAirport;
+    @ManyToOne(targetEntity = Airport.class)
+    @JoinColumn(name = "departureAirport", referencedColumnName = "id")
+    private Airport departureAirport;
 
-    @Column(name = "arrivalAirport")
-    private int arrivalAirport;
+    @ManyToOne(targetEntity = Airport.class)
+    @JoinColumn(name = "arrivalAirport", referencedColumnName = "id")
+    private Airport arrivalAirport;
 
     @Column(name = "departureDate")
     private Date departureDate;
