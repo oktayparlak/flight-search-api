@@ -45,7 +45,8 @@ public class SecurityConfig {
         security
                 .headers(x -> x.frameOptions(HeadersConfigurer.FrameOptionsConfig::disable))
                 .csrf(AbstractHttpConfigurer::disable)
-                .formLogin(Customizer.withDefaults())
+                .formLogin(AbstractHttpConfigurer::disable)
+                .authorizeHttpRequests(x -> x.requestMatchers("/api/**").permitAll())
                 .authorizeHttpRequests(x -> x.anyRequest().authenticated())
                 .httpBasic(Customizer.withDefaults());
         return security.build();
