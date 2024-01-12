@@ -29,6 +29,11 @@ public class FlightManager implements FlightService {
     }
 
     @Override
+    public List<Flight> search(Long departureAirportId, Long arrivalAirportId) {
+        return this.flightRepository.getFlightsByDepartureAirport_IdAndArrivalAirport_Id(departureAirportId, arrivalAirportId);
+    }
+
+    @Override
     public void add(Flight flight) {
         this.flightRepository.save(flight);
     }

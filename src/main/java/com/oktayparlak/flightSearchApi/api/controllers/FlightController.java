@@ -28,6 +28,11 @@ public class FlightController {
         return this.flightService.getById(id);
     }
 
+    @GetMapping("/search")
+    public List<Flight> search(@RequestParam Long departureAirportId, @RequestParam Long arrivalAirportId) {
+        return this.flightService.search(departureAirportId, arrivalAirportId);
+    }
+
     @PostMapping("/")
     public void add(@RequestBody Flight flight) {
         this.flightService.add(flight);
