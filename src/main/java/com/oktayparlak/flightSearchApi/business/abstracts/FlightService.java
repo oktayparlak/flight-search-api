@@ -7,9 +7,9 @@ import java.util.List;
 public interface FlightService {
 
     List<Flight> getAll();
-    Flight getById(int id);
+    Flight getById(Long id);
     void add(Flight flight);
     void update(Flight flight);
-    void delete(Flight flight);
+    void delete(Long id);
 
 }

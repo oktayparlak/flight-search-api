@@ -24,8 +24,8 @@ public class AirportManager implements AirportService {
     }
 
     @Override
-    public Airport getById(int id) {
-        return this.airportRepository.getReferenceById(id);
+    public Airport getById(Long id) {
+        return this.airportRepository.getReferenceById(Integer.parseInt(id.toString()));
     }
 
     @Override
@@ -39,7 +39,7 @@ public class AirportManager implements AirportService {
     }
 
     @Override
-    public void delete(Airport airport) {
-        this.airportRepository.delete(airport);
+    public void delete(Long id) {
+        this.airportRepository.deleteById(Integer.parseInt(id.toString()));
     }
 }

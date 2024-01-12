@@ -1,5 +1,6 @@
 package com.oktayparlak.flightSearchApi.entities.concretes;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -12,6 +13,7 @@ import java.util.Date;
 @NoArgsConstructor
 @Entity
 @Table(name = "flights")
+@JsonIgnoreProperties({"hibernateLazyInitializer","handler"})
 public class Flight {
 
     @Id

@@ -23,8 +23,8 @@ public class FlightController {
         return this.flightService.getAll();
     }
 
-    @GetMapping("/id")
-    public Flight getById(@RequestParam int id) {
+    @GetMapping("/{id}")
+    public Flight getById(@PathVariable Long id) {
         return this.flightService.getById(id);
     }
 
@@ -33,13 +33,13 @@ public class FlightController {
         this.flightService.add(flight);
     }
 
-    @PatchMapping("/id")
+    @PatchMapping("/")
     public void update(@RequestBody Flight flight) {
         this.flightService.update(flight);
     }
 
-    @DeleteMapping("/id")
-    public void delete(@RequestBody Flight flight) {
-        this.flightService.delete(flight);
+    @DeleteMapping("/{id}")
+    public void delete(@PathVariable Long id) {
+        this.flightService.delete(id);
     }
 }

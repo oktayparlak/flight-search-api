@@ -24,8 +24,8 @@ public class FlightManager implements FlightService {
     }
 
     @Override
-    public Flight getById(int id) {
-        return this.flightRepository.getReferenceById(id);
+    public Flight getById(Long id) {
+        return this.flightRepository.getReferenceById(Integer.parseInt(id.toString()));
     }
 
     @Override
@@ -39,7 +39,7 @@ public class FlightManager implements FlightService {
     }
 
     @Override
-    public void delete(Flight flight) {
-        this.flightRepository.delete(flight);
+    public void delete(Long id) {
+        this.flightRepository.deleteById(Integer.parseInt(id.toString()));
     }
 }

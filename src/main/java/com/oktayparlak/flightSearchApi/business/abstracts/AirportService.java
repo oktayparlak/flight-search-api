@@ -7,9 +7,9 @@ import java.util.List;
 public interface AirportService {
 
     List<Airport> getAll();
-    Airport getById(int id);
+    Airport getById(Long id);
     void add(Airport airport);
     void update(Airport airport);
-    void delete(Airport airport);
+    void delete(Long id);
 
 }
