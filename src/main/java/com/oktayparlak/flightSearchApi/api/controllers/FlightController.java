@@ -3,6 +3,7 @@ package com.oktayparlak.flightSearchApi.api.controllers;
 import com.oktayparlak.flightSearchApi.business.abstracts.FlightService;
 import com.oktayparlak.flightSearchApi.entities.concretes.Flight;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -34,16 +35,19 @@ public class FlightController {
     }
 
     @PostMapping("/")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     public void add(@RequestBody Flight flight) {
         this.flightService.add(flight);
     }
 
     @PatchMapping("/")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     public void update(@RequestBody Flight flight) {
         this.flightService.update(flight);
     }
 
     @DeleteMapping("/{id}")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     public void delete(@PathVariable Long id) {
         this.flightService.delete(id);
     }

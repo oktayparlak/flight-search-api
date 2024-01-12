@@ -41,11 +41,11 @@ public class SecurityConfig {
     }
 
     @Bean
-    public SecurityFilterChain filterChain(HttpSecurity security)  throws Exception {
+    public SecurityFilterChain filterChain(HttpSecurity security) throws Exception {
         security
                 .headers(x -> x.frameOptions(HeadersConfigurer.FrameOptionsConfig::disable))
                 .csrf(AbstractHttpConfigurer::disable)
-                .formLogin(AbstractHttpConfigurer::disable)
+                .formLogin(Customizer.withDefaults())
                 .authorizeHttpRequests(x -> x.anyRequest().authenticated())
                 .httpBasic(Customizer.withDefaults());
         return security.build();
