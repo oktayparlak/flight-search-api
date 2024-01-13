@@ -2,10 +2,13 @@ package com.oktayparlak.flightSearchApi.business.concretes;
 
 import com.oktayparlak.flightSearchApi.business.abstracts.FlightService;
 import com.oktayparlak.flightSearchApi.dataAccess.abstracts.FlightRepository;
+import com.oktayparlak.flightSearchApi.entities.concretes.Airport;
 import com.oktayparlak.flightSearchApi.entities.concretes.Flight;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -29,8 +32,12 @@ public class FlightManager implements FlightService {
     }
 
     @Override
-    public List<Flight> search(Long departureAirportId, Long arrivalAirportId) {
-        return this.flightRepository.getFlightsByDepartureAirport_IdAndArrivalAirport_Id(departureAirportId, arrivalAirportId);
+    public List<Flight> search(Long departureAirportId, Long arrivalAirportId, LocalDateTime departureDate) {
+        return this.flightRepository.getFlightsByDepartureAirport_IdAndArrivalAirport_IdAndDepartureDate(departureAirportId, arrivalAirportId, departureDate);
+    }
+    @Override
+    public List<Flight> search(Long departureAirportId, Long arrivalAirportId, LocalDateTime departureDate, LocalDateTime arrivalDate) {
+        return this.flightRepository.getFlightsByDepartureAirport_IdAndArrivalAirport_IdAndDepartureDateAndArrivalDate(departureAirportId, arrivalAirportId, departureDate, arrivalDate);
     }
 
     @Override

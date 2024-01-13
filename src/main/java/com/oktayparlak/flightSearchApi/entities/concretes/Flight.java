@@ -6,7 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
 @Data
 @AllArgsConstructor
@@ -17,7 +17,7 @@ import java.util.Date;
 public class Flight {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
     private Long id;
 
@@ -30,9 +30,9 @@ public class Flight {
     private Airport arrivalAirport;
 
     @Column(name = "departureDate")
-    private Date departureDate;
+    private LocalDateTime departureDate;
 
     @Column(name = "arrivalDate")
-    private Date arrivalDate;
+    private LocalDateTime arrivalDate;
 
 }

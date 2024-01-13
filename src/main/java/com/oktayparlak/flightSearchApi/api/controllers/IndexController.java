@@ -8,13 +8,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/")
-@Tag(name = "Index Controller")
 public class IndexController {
 
     @GetMapping("/")
-    @PreAuthorize("hasRole('ROLE_USER')")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     public String index() {
-        return "Welcome to Flight Search API";
+        return "Welcome to Flight Search API As A Admin";
     }
 
 }
